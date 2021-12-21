@@ -10,8 +10,8 @@ services:
       - static_volume:/backend/staticfiles
       - media:/backend/media
     environment:
-      ADMIN_USERNAME: "${ADMIN_USERNAME}"
-      ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+      ADMIN_USERNAME: "ADMIN_USERNAME_PLD"
+      ADMIN_PASSWORD: "ADMIN_PASSWORD_PLD"
       ADMIN_EMAIL: ${ADMIN_EMAIL}
       CELERY_BROKER_URL: "amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@rabbitmq"
       DATABASE_URL: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable"
