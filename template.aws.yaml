@@ -11,6 +11,18 @@ Parameters:
     Type: String
     Default: "password"
     NoEcho: true
+  DbName:
+    Description: "The database name"
+    Type: String
+    Default: "doccano"
+  DbUserName:
+    Description: "The username of the database"
+    Type: String
+    Default: "admin"
+  DbPassword:
+    Description: "The password of the database"
+    Type: String
+    Default: "doccano"
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
     Type: AWS::EC2::KeyPair::KeyName
@@ -141,11 +153,13 @@ Resources:
           ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
           # Install git
           yum install -y git
-          git clone https://github.com/doccano/doccano.git
+          git clone https://github.com/Natlem/doccano
           cd doccano
-          cp config/.env.example .env
-          sed -i s/admin/${Username}/g .env
-          sed -i s/password/${Password}/g .env
+          sed -i s/"ADMIN_USERNAME_PLD"/${Username}/g docker-compose.prod.yml
+          sed -i s/"ADMIN_PASSWORD_PLD"/${Password}/g docker-compose.prod.yml
+          sed -i s/"POSTGRES_DB_PLD"/${DbName}/g docker-compose.prod.yml
+          sed -i s/"POSTGRES_USER_PLD"/${DbUserName}/g docker-compose.prod.yml
+          sed -i s/"POSTGRES_PASSWORD_PLD"/${DbPassword}/g docker-compose.prod.yml
           docker-compose -f docker-compose.prod.yml up -d
       Tags:
         - Key: Name
