@@ -21,7 +21,7 @@ Parameters:
     Type: String
     Default: "admin"
     NoEcho: true
-  Dbpassword:
+  DbPassword:
     Description: "The password of the postgres database"
     Type: String
     Default: "password"
