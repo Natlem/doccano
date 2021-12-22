@@ -11,6 +11,21 @@ Parameters:
     Type: String
     Default: "password"
     NoEcho: true
+  DbName:
+    Description: "The name of the postgres database"
+    Type: String
+    Default: "doccano"
+    NoEcho: true
+  DbUserName:
+    Description: "The username of the postgres database"
+    Type: String
+    Default: "admin"
+    NoEcho: true
+  Dbpassword:
+    Description: "The password of the postgres database"
+    Type: String
+    Default: "password"
+    NoEcho: true
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
     Type: AWS::EC2::KeyPair::KeyName
