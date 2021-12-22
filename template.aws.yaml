@@ -159,8 +159,11 @@ Resources:
           git clone https://github.com/doccano/doccano.git
           cd doccano
           cp config/.env.example .env
-          sed -i s/admin/${Username}/g .env
-          sed -i s/password/${Password}/g .env
+          sed -i s/"ADMIN_USERNAME_PLD"/${Username}/g .env
+          sed -i s/"ADMIN_PASSWORD_PLD"/${Password}/g .env
+          sed -i s/"POSTGRES_NAME_PLD"/${DbName}/g .env
+          sed -i s/"POSTGRES_USER_PLD"/${DbUserName}/g .env
+          sed -i s/"POSTGRES_PASSWORD_PLD"/${DbPassword}/g .env
           docker-compose -f docker-compose.prod.yml up -d
       Tags:
         - Key: Name
