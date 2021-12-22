@@ -15,12 +15,10 @@ Parameters:
     Description: "The name of the postgres database"
     Type: String
     Default: "doccano"
-    NoEcho: true
   DbUserName:
     Description: "The username of the postgres database"
     Type: String
     Default: "admin"
-    NoEcho: true
   DbPassword:
     Description: "The password of the postgres database"
     Type: String
